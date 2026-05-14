@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tablas</title>
+
+    <link rel="stylesheet" href="estilos.css">
+</head>
+
+<body>
+
+    <div id="cabecera">
+        <h1>Practicas CSS</h1>
+    </div>
+
+    <div id="menu">
+
+        <a href="Index.html" class="item_menu">Inicio</a>
+        <a href="Atributos.html" class="item_menu">Atributos</a>
+        <a href="Etiqueta.html" class="item_menu">Etiquetas</a>
+        <a href="Textos.htm" class="item_menu">Textos</a>
+        <a href="Imagenes.html" class="item_menu">Imagenes</a>
+        <a href="Margenes.html" class="item_menu">Margenes</a>
+        <a href="Flex.html" class="item_menu">Flex</a>
+        <a href="Decradado.html" class="item_menu">Degradados</a>
+        <a href="Tablas.html" class="item_menu">Tablas</a>
+        <a href="Animaciones.html" class="item_menu">Animaciones</a>
+
+        <div class="dropdown">
+
+            <a class="item_menu dropbtn">Fondos</a>
+
+            <div class="dropdown-content">
+                <a href="FondoColor.html">Fondo Color</a>
+                <a href="Fondo_Imagen.html">Fondo Imagen</a>
+                <a href="Fondo_Fijo.html">Fondo Fijo</a>
+            </div>
+
+        </div>
+
+    </div>
+
+    <table border="1" cellpadding="10">
+
+        <tr>
+
+            <td>Nombre</td>
+
+            <td>
+
+                <input 
+                    type="text" 
+                    class="Caja_de_Texto"
+
+                    placeholder="Ingrese su nombre"
+
+                    onkeypress="return soloLetras(event)"
+                >
+
+            </td>
+
+        </tr>
+
+        <tr>
+
+            <td>Edad</td>
+
+            <td>
+
+                <input 
+                    type="text" 
+                    class="Caja_de_Texto"
+
+                    id="edad"
+
+                    maxlength="3"
+
+                    placeholder="Solo números"
+
+                    oninput="validarEdad()"
+                >
+
+                <br>
+
+                <span id="errorEdad" style="color:red; font-size:12px;"></span>
+
+            </td>
+
+        </tr>
+
+        <tr>
+
+            <td>Correo</td>
+
+            <td>
+
+                <input 
+                    type="email" 
+                    class="Caja_de_Texto"
+
+                    placeholder="Ingrese su correo"
+                >
+
+            </td>
+
+        </tr>
+
+        <tr>
+
+            <td>
+                <button id="boton_enviar">Enviar</button>
+            </td>
+
+            <td>
+                <button id="boton_borrar">Borrar</button>
+            </td>
+
+        </tr>
+
+    </table>
+
+    <br><br>
+
+    <div id="footer">
+        Nombre © <br>
+        Curso 5A <br>
+        UTLVTE 2026
+    </div>
+
+    <script>
+
+        function validarEdad() {
+
+            let edad = document.getElementById("edad").value;
+
+            let error = document.getElementById("errorEdad");
+
+            if (isNaN(edad)) {
+
+                error.innerHTML = "Solo números";
+
+                document.getElementById("edad").value = "";
+
+            }
+
+            else if (edad > 150) {
+
+                error.innerHTML = "Máximo 150 años";
+
+                document.getElementById("edad").value = "";
+
+            }
+
+            else {
+
+                error.innerHTML = "";
+
+            }
+
+        }
+
+        function soloLetras(e) {
+
+            let tecla = e.key;
+
+            let letras = /^[A-Za-zÁÉÍÓÚáéíóúñÑ ]+$/;
+
+            if (!letras.test(tecla)) {
+
+                return false;
+
+            }
+
+        }
+
+    </script>
+
+</body>
+</html>
